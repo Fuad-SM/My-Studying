@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/themes/theme.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,71 +18,17 @@ class HomePage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(
-                height: 50,
-              ),
-              Text(
-                'Profile Picture',
-                style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Image.asset(
-                'assets/images/primary.png',
-                width: 140,
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Text(
-                'Anne Margaritha',
-                style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Text(
-                'UX Designer',
-                style: TextStyle(color: greyColor, fontSize: 16),
-              ),
-              SizedBox(
-                height: 70,
-              ),
+              header(),
               Wrap(
                 spacing: 38,
                 runSpacing: 40,
                 children: [
-                  Image.asset(
-                    'assets/images/item1.png',
-                    width: 80,
-                  ),
-                  Image.asset(
-                    'assets/images/item2.png',
-                    width: 80,
-                  ),
-                  Image.asset(
-                    'assets/images/item3.png',
-                    width: 80,
-                  ),
-                  Image.asset(
-                    'assets/images/item4.png',
-                    width: 80,
-                  ),
-                  Image.asset(
-                    'assets/images/item5.png',
-                    width: 80,
-                  ),
-                  Image.asset(
-                    'assets/images/item6.png',
-                    width: 80,
-                  ),
+                  optionPicture(0, 'assets/images/item1.png'),
+                  optionPicture(1, 'assets/images/item2.png'),
+                  optionPicture(2, 'assets/images/item3.png'),
+                  optionPicture(3, 'assets/images/item4.png'),
+                  optionPicture(4, 'assets/images/item5.png'),
+                  optionPicture(5, 'assets/images/item6.png'),
                 ],
               ),
               SizedBox(
@@ -156,6 +109,68 @@ class HomePage extends StatelessWidget {
           ),
         ),
       )),
+    );
+  }
+
+  Widget header() {
+    return Column(
+      children: [
+        SizedBox(
+          height: 50,
+        ),
+        Text(
+          'Profile Picture',
+          style: TextStyle(
+              color: primaryColor, fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+        SizedBox(
+          height: 50,
+        ),
+        Image.asset(
+          'assets/images/primary.png',
+          width: 140,
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Text(
+          'Anne Margaritha',
+          style: TextStyle(
+              color: primaryColor, fontSize: 18, fontWeight: FontWeight.w500),
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Text(
+          'UX Designer',
+          style: TextStyle(color: greyColor, fontSize: 16),
+        ),
+        SizedBox(
+          height: 70,
+        ),
+      ],
+    );
+  }
+
+  Widget optionPicture(int index, String image) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedIndex = index;
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(
+              color: selectedIndex == index ? orangeColor : backgroundColor,
+              width: 2),
+        ),
+        child: Image.asset(
+          image,
+          width: 80,
+        ),
+      ),
     );
   }
 }
