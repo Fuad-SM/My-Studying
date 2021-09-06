@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 class SpaceCard extends StatelessWidget {
   final Space space;
 
-  SpaceCard({required this.space});
+  SpaceCard(this.space);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DetailPage(space)));
       },
       child: Row(
         children: [
@@ -24,8 +24,10 @@ class SpaceCard extends StatelessWidget {
               height: 110,
               child: Stack(
                 children: [
-                  Image.asset(
+                  Image.network(
                     space.imageUrl,
+                    width: 130,
+                    height: 110,
                     fit: BoxFit.cover,
                   ),
                   Align(
@@ -46,7 +48,7 @@ class SpaceCard extends StatelessWidget {
                             height: 18,
                           ),
                           Text(
-                            space.review,
+                            '${space.rating}/5',
                             style: whiteTextstyle.copyWith(fontSize: 13),
                           )
                         ],
@@ -71,7 +73,7 @@ class SpaceCard extends StatelessWidget {
                 height: 2,
               ),
               Text.rich(TextSpan(
-                  text: space.price,
+                  text: '\$${space.price}',
                   style: purpleTextStyle.copyWith(fontSize: 16),
                   children: [
                     TextSpan(
