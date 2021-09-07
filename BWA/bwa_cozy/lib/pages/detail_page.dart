@@ -24,6 +24,41 @@ class DetailPage extends StatelessWidget {
       }
     }
 
+    Future<void> showConfirmation() async {
+      return showDialog(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                title: Text(
+                  'Konfirmasi',
+                  textAlign: TextAlign.center,
+                ),
+                content: Text(
+                  'Apakah anda yakin untuk\nmelakukan Booking',
+                  textAlign: TextAlign.center,
+                ),
+                actions: [
+                  Expanded(
+                      child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: Text('Batal')),
+                      ),
+                      Expanded(
+                        child: TextButton(
+                            onPressed: () => launchURl('tel:${space.phone}'),
+                            child: Text('Hubungi')),
+                      ),
+                    ],
+                  )),
+                ],
+              ));
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: Stack(
@@ -161,9 +196,7 @@ class DetailPage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(17),
                               )),
-                          onPressed: () {
-                            launchURl('tel:${space.phone}');
-                          },
+                          onPressed: () => showConfirmation(),
                           child: Text(
                             'Book Now',
                             style: whiteTextstyle.copyWith(fontSize: 18),
