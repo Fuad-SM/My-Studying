@@ -2,6 +2,7 @@ import 'package:bwa_cozy/models/space.dart';
 import 'package:bwa_cozy/pages/error_page.dart';
 import 'package:bwa_cozy/theme.dart';
 import 'package:bwa_cozy/widgets/facility_item.dart';
+import 'package:bwa_cozy/widgets/favorite_button.dart';
 import 'package:bwa_cozy/widgets/photo_card.dart';
 import 'package:bwa_cozy/widgets/rating_item.dart';
 import 'package:flutter/material.dart';
@@ -195,11 +196,7 @@ class DetailPage extends StatelessWidget {
                       )),
                   CircleAvatar(
                     backgroundColor: whiteColor,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite),
-                      color: orangeColor,
-                    ),
+                    child: FavoriteButton(),
                   )
                 ],
               ),
