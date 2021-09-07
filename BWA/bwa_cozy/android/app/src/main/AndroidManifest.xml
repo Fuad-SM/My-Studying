@@ -14,9 +14,10 @@
         <data android:mimeType="*/*" />
     </intent>
     </queries>
-   
+
+   <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="bwa_cozy"
+        android:label="Cozy Apps"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
