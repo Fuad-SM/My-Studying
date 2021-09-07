@@ -64,6 +64,3 @@ class ErrorPage extends StatelessWidget {
     );
   }
 }
-
-
-// bwa-cozy.herokuapp.com/recommended-spaces

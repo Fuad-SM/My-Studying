@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // NOTE: Title/Header
+                  // NOTE: Part Title/Header
                   Text(
                     'Explore Now',
                     style: blackTextStyle.copyWith(fontSize: 24),
@@ -37,7 +37,8 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  // NOTE: Popular Cities
+
+                  // NOTE: Part Popular Cities
                   Text(
                     'Popular Cities',
                     style: regularTextStyle.copyWith(fontSize: 16),
@@ -49,7 +50,8 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  // NOTE: Recomended Space
+
+                  // NOTE: Part Recomended Space
                   Text(
                     'Recomended Space',
                     style: regularTextStyle.copyWith(fontSize: 16),
@@ -77,6 +79,8 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
+
+                  // NOTE: Part Tips & Guidance
                   Text(
                     'Tips & Guidance',
                     style: regularTextStyle.copyWith(fontSize: 16),
@@ -110,6 +114,8 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+
+      // NOTE: Bottom Button Navbar
       floatingActionButton: Container(
         height: 65,
         width: MediaQuery.of(context).size.width - (2.0 * 24.0),

@@ -14,16 +14,17 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Note: Function Url Launcher
     launchURl(String url) async {
       if (await canLaunch(url)) {
         launch(url);
       } else {
-        // throw ('Could not launch $url');
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => ErrorPage()));
       }
     }
 
+    // Note: Alert Dialog show confirmation booking
     Future<void> showConfirmation() async {
       return showDialog(
           context: context,
@@ -33,26 +34,24 @@ class DetailPage extends StatelessWidget {
                 title: Text(
                   'Konfirmasi',
                   textAlign: TextAlign.center,
+                  style: blackTextStyle,
                 ),
                 content: Text(
                   'Apakah anda yakin untuk\nmelakukan Booking',
                   textAlign: TextAlign.center,
+                  style: greyTextStyle,
                 ),
                 actions: [
-                  Expanded(
+                  Container(
                       child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Expanded(
-                        child: TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text('Batal')),
-                      ),
-                      Expanded(
-                        child: TextButton(
-                            onPressed: () => launchURl('tel:${space.phone}'),
-                            child: Text('Hubungi')),
-                      ),
+                      TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text('Batal')),
+                      TextButton(
+                          onPressed: () => launchURl('tel:${space.phone}'),
+                          child: Text('Hubungi')),
                     ],
                   )),
                 ],
@@ -83,6 +82,7 @@ class DetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Note: Part Header
                       SizedBox(
                         height: 30,
                       ),
@@ -120,6 +120,8 @@ class DetailPage extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
+
+                      // Note: Part Main Facilities
                       Text('Main Facilities',
                           style: blackTextStyle.copyWith(fontSize: 16)),
                       SizedBox(
@@ -148,6 +150,8 @@ class DetailPage extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
+
+                      // Note: Part Photos
                       Text('Photos',
                           style: blackTextStyle.copyWith(fontSize: 16)),
                       SizedBox(
@@ -157,6 +161,8 @@ class DetailPage extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
+
+                      // Note: Part Location
                       Text('Location',
                           style: blackTextStyle.copyWith(fontSize: 16)),
                       SizedBox(
@@ -187,6 +193,8 @@ class DetailPage extends StatelessWidget {
                       SizedBox(
                         height: 40,
                       ),
+
+                      // Note: Button Book Now
                       Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width,
@@ -212,6 +220,8 @@ class DetailPage extends StatelessWidget {
               )
             ],
           ),
+
+          // Note: Button Back and Favorite
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),

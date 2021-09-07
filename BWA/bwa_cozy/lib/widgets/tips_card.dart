@@ -3,8 +3,6 @@ import 'package:bwa_cozy/theme.dart';
 import 'package:flutter/material.dart';
 
 class TipsCard extends StatelessWidget {
-  // const TipsCard({Key? key}) : super(key: key);
-
   final Tips tips;
   const TipsCard({required this.tips});
 
